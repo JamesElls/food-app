@@ -2,8 +2,8 @@ import './App.css';
 import {Route, Switch} from 'react-router-dom'
 import Foods from './Foods';
 import Restaurant from './restaurant';
-import Food from './rood';
-import NavBar from './Navbar';
+import Food from './food';
+import NavBar from './navbar';
 import { Container } from 'semantic-ui-react';
 import Cook from './cook';
 
@@ -21,6 +21,8 @@ function App() {
        </Switch>
       </Container>
     </>
+
+    
 
   );
 }
