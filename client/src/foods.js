@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import food from './food'
+import { Card , Button, CardHeader} from "semantic-ui-react"
+import { Link } from 'react-router-dom'
+
 
 const Foods = () => {
 
@@ -25,7 +27,21 @@ const Foods = () => {
         }
         return foods.map( food =>{
             return(
-             <h3>check back soon for this feature</h3>
+                <Card>
+                    <Card.Header style={{display:'flex', justifyContent:'center', backgroundColor:'lightGrey'}}>
+                        {food.name}
+                    </Card.Header>
+
+                    <button>   
+
+                    <Link to={`/food/${food.id}`}>
+                        <div>
+                            view
+                        </div>
+                    </Link>
+
+                    </button>
+              </Card>
             )
         })
     }
@@ -33,7 +49,7 @@ const Foods = () => {
     console.log(foods)
 
     return (
-        <div>
+        <div className='food-homepage'>
             {renderFoods()}
         </div>
     )
