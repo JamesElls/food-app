@@ -1,9 +1,12 @@
 import React from 'react'
 
-const updateCookForm= () => {
-  <div>
-    <h1>Update Cook Form</h1>
-  </div>
+const UpdateCookForm= () => {
+  return(
+    <div>
+      <h1>Update Cook Form</h1>
+    </div>
+
+  )
 }
 
-export default updateCookForm
+export default UpdateCookForm;

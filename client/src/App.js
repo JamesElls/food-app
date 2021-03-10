@@ -7,6 +7,7 @@ import NavBar from './navbar';
 import { Container } from 'semantic-ui-react';
 import Cook from './cook';
 import Cooks from './cooks';
+import UpdateCookForm from './updateCookForm';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/foods' component={Foods} />
         <Route exact path='/cooks' component={Cooks} />
         <Route exact path='/cooks/:id' component={Cook} />
+        <Route exact path='/cooks/:id/update' component={UpdateCookForm} />
        </Switch>
       </Container>
     </>
