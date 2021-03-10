@@ -19,7 +19,7 @@ function App() {
         <Route exact path='/food/:id' component={Food} />
         <Route exact path='/foods' component={Foods} />
         <Route exact path='/cooks' component={Cooks} />
-        <Route exact path='/cooks/:id/:name/:specialty' component={Cook} />
+        <Route exact path='/cooks/:id' component={Cook} />
        </Switch>
       </Container>
     </>
