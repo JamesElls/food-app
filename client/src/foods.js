@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom'
 const Foods = () => {
 
     const [foods, setFoods] =useState([])
-    
-    
 
     useEffect(() => {
         getFoods()
@@ -29,18 +27,21 @@ const Foods = () => {
         }
         return foods.map( food =>{
             return(
-                // <Card>
-                //     <Card.Content>
-                //         <Card.Header>{food.name}</Card.Header>
-                //     </Card.Content>
-                // </Card>
-                <button>          
-                <Link to={`/food/${food.id}`}>
-                    <div>
+                <Card>
+                    <Card.Header style={{display:'flex', justifyContent:'center', backgroundColor:'lightGrey'}}>
                         {food.name}
-                    </div>
-                </Link>
-              </button>
+                    </Card.Header>
+
+                    <button>   
+
+                    <Link to={`/food/${food.id}`}>
+                        <div>
+                            view
+                        </div>
+                    </Link>
+
+                    </button>
+              </Card>
             )
         })
     }

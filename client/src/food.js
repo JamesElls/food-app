@@ -9,9 +9,11 @@ const Food = () => {
     
 
   return(
-    <div>
-      <h1>Please work</h1>
-    </div>
+    <Card>
+        <Card.Header style={{display:'flex', justifyContent:'space-between'}}>
+            wow
+        </Card.Header>
+    </Card>
   )
 }
 
