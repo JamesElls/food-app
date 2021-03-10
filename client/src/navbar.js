@@ -5,19 +5,19 @@ const navBar = ()=> {
 return(
 <Menu> 
   <Link to='/'>
-  <Menu.Item>
-                    foods
-                </Menu.Item>
-            </Link>
-            <Link to='/foods'>
-                <Menu.Item>
-                    cooks
-              </Menu.Item>
-            </Link>
-            <Link to='/cooks'>
+    <Menu.Item>
+      foods
+    </Menu.Item>
+  </Link>
+  <Link to='/cooks'>
+    <Menu.Item>
+      cooks
+    </Menu.Item>
+  </Link>
+            {/* <Link to='/cooks'>
               <Menu.Item>
               </Menu.Item>
-            </Link>              
+            </Link>               */}
 
      
      
