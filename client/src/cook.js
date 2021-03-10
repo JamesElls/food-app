@@ -1,17 +1,30 @@
-import { useParams } from 'react-router-dom';
 
-const Cook = () => {
-  const {id, name, specialty} = useParams()
-  const params = useParams("")
-  console.log(params)
+import { Link } from 'react-router-dom';
+import { Button, Card } from 'semantic-ui-react';
+
+const Cook = (props) => {
+  const {id, name, specialty} = props
+
 
   return(
-    <div>
-      <h1>Cook Page</h1>
-      <p>Name: {name}</p>
-      <p>Specialty: {specialty}</p>
-      <p>ID: {id}</p>
-    </div>
+    <Card>
+      <Card.Content style={{background: 'whitesmoke'}}>
+        <Card.Header>{name}</Card.Header>
+        <Card.Meta>specialty ~ {specialty}</Card.Meta>
+      </Card.Content>
+      <Card.Content extra>
+        <div className='ui two buttons'>
+          <Link to={`/cooks/${id}`}>
+            <Button basic color='green'>
+              View/Update
+            </Button>
+          </Link>
+          <Button basic color='red'>
+            Delete
+          </Button>
+        </div>
+      </Card.Content>
+    </Card>
   )
 }
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Cook from './cook';
 import { Link } from 'react-router-dom';
+import { Button, Card } from 'semantic-ui-react';
 
 const Cooks = () => {
   const [cooks, setCooks] = useState([])
@@ -21,23 +22,33 @@ const Cooks = () => {
 
 
   const renderCooks = () => {
-    return cooks.map( cook => {
-      return(
-        <Link to={`cooks/${cook.id}/${cook.name}/${cook.specialty}`}>
-          <div>
-            {cook.name}
-          </div>
-        </Link>
+    return cooks.map( cook => <Cook key={cook.id} {...cook}/>
+    // {
+      // return(
+      //   <Link to={`cooks/${cook.id}/${cook.name}/${cook.specialty}`}>
+      //     <div>
+      //       {cook.name}
+      //     </div>
+      //   </Link>
 
-      )
-    })
+      // )
+    // }
+    )
   }
 
   return(
-    <div>
-      <h1>Cooks Page</h1>
+    <Card.Group>
+      <Card fluid color='blue'>
+        <Card.Content style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Card.Header>Cooks Page</Card.Header>
+          <Link>
+            <Button>New Cook</Button>
+          </Link>
+        </Card.Content>
+      </Card>
       {renderCooks()}
-    </div>
+    </Card.Group>
+  
   )
 }
 
