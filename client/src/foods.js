@@ -28,30 +28,46 @@ const Foods = () => {
         return foods.map( food =>{
             return(
                 <Card>
-                    <Card.Header style={{display:'flex', justifyContent:'center', backgroundColor:'lightGrey'}}>
-                        {food.name}
-                    </Card.Header>
-
-                    <button>   
-
-                    <Link to={`/food/${food.id}`}>
-                        <div>
-                            view
+                    <Card.Content style={{background: 'whitesmoke', display: 'flex', justifyContent: 'space-between'}}>
+                        <Card.Content>
+                        <Card.Header>{food.name}</Card.Header>
+                        </Card.Content>
+                        <Card.Content>
+                        <Link to={`/food/${food.id}`}>
+                            <Button>View</Button>
+                        </Link>
+                        </Card.Content>
+                    </Card.Content>
+                    <Card.Content extra>
+                        <div className='ui two buttons'>
+                        <Link>
+                            <Button basic color='green'>
+                            Update
+                            </Button>
+                        </Link>
+                        <Button basic color='red'>
+                            Delete
+                        </Button>
                         </div>
-                    </Link>
-
-                    </button>
-              </Card>
+                    </Card.Content>
+            </Card>
             )
         })
     }
 
-    console.log(foods)
 
     return (
-        <div className='food-homepage'>
-            {renderFoods()}
-        </div>
+        <Card.Group>
+        <Card fluid color='blue'>
+          <Card.Content style={{display: 'flex', justifyContent: 'space-between'}}>
+            <Card.Header>Foods Page</Card.Header>
+            <Link>
+              <Button>New Food</Button>
+            </Link>
+          </Card.Content>
+        </Card>
+        {renderFoods()}
+      </Card.Group>
     )
     
 }
