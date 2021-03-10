@@ -22,18 +22,35 @@ const Cooks = () => {
 
 
   const renderCooks = () => {
-    return cooks.map( cook => <Cook key={cook.id} {...cook}/>
-    // {
-      // return(
-      //   <Link to={`cooks/${cook.id}/${cook.name}/${cook.specialty}`}>
-      //     <div>
-      //       {cook.name}
-      //     </div>
-      //   </Link>
-
-      // )
-    // }
-    )
+    return cooks.map( cook => {
+      return(
+        <Card>
+          <Card.Content style={{background: 'whitesmoke', display: 'flex', justifyContent: 'space-between'}}>
+            <Card.Content>
+              <Card.Header>{cook.name}</Card.Header>
+              <Card.Meta>specialty ~ {cook.specialty}</Card.Meta>
+            </Card.Content>
+            <Card.Content>
+              <Link to={`/cooks/${cook.id}`}>
+                <Button>View</Button>
+              </Link>
+            </Card.Content>
+          </Card.Content>
+          <Card.Content extra>
+            <div className='ui two buttons'>
+              <Link>
+                <Button basic color='green'>
+                  Update
+                </Button>
+              </Link>
+              <Button basic color='red'>
+                Delete
+              </Button>
+            </div>
+          </Card.Content>
+        </Card>
+      )
+    })
   }
 
   return(
