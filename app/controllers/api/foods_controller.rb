@@ -8,7 +8,7 @@ class Api::FoodsController < ApplicationController
   def show 
     @food = Food.find(params[:id])
 
-    render json: @food
+    render json: {food: @food, restaurants: @food.restaurants}
   end
 
   def create
