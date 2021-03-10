@@ -6,7 +6,7 @@ import Food from './food';
 import NavBar from './navbar';
 import { Container } from 'semantic-ui-react';
 import Cook from './cook';
-import Cooks from './cooks'
+import Cooks from './cooks';
 
 function App() {
   return (
