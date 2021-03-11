@@ -4,6 +4,7 @@ import { Card , Button, CardHeader} from "semantic-ui-react"
 import { useParams, useHistory, Link } from 'react-router-dom'
 import Restaurant from './restaurant'
 import newCookForm from './newCookForm'
+import NewRestaurantForm from './NewRestaurantForm'
 const Food = () => {
     const { id } = useParams()
     let history = useHistory();
@@ -42,15 +43,11 @@ history.push('/')
     <Card fluid color='purple'>
     <Card.Content>
        <Card.Header style={{display:'flex', justifyContent:'space-between'}}>
-          
+			 <Link to= {`/foods/${id}/restaurants`}>	 
+			 <Button color='orange'>Add New Restaurant</Button>
+			 </Link>
          <div >
 					 <h1>{food.name}</h1>
-           {/* <Button color='orange' onClick={deleteFood}>Delete</Button>
-           <Link to={`/foods/${id}/edit`}>
-           <Button color='orange' onClick={deleteFood}>Delete</Button>
-           <Link to={`/foods/${id}/update`}>
-              <Button>Update</Button>
-           </Link> */}
          </div>
        </Card.Header>
        </Card.Content>

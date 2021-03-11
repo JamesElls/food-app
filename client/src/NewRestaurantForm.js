@@ -1,19 +1,20 @@
 import axios from 'axios'
 import {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import {useHistory, useParams} from 'react-router-dom'
 import { Button, Form } from 'semantic-ui-react'
 
 
-const newRestaurantForm = () => {
+const NewRestaurantForm = () => {
 	const [name, setName] = useState ('')
 	const [address, setAddress] = useState ('')
 	const history = useHistory()
+	const {food_id} = useParams
 
-	const handleSubmit = async () => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try {
-			axios.post(`/api/foods/:food_id/restaurants`,{name, address})
-			history.push(`/food/:id`)
+			axios.post(`/api/foods/${food_id}/restaurants`,{name, address})
+			history.push(`/food/${food_id}`)
 		}catch(error){
 			alert('not correctly functioning')
 		}
@@ -47,6 +48,5 @@ const newRestaurantForm = () => {
 	)
 }
 
-end
 
-export default newRestaurantForm
+export default NewRestaurantForm

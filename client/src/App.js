@@ -10,8 +10,9 @@ import Cooks from './cooks';
 import UpdateCookForm from './updateCookForm';
 import NewCookForm from './newCookForm';
 import UpdateRestaurantForm from './UpdateRestaurantForm';
-import UpdateFoodForm from './updateFoodForm'
+import UpdateFoodForm from './updateFoodForm';
 import NewFoodForm from './newFoodForm';
+import NewRestaurantForm from './NewRestaurantForm';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route exact path='/foods/:id/update' component={UpdateFoodForm} />
         <Route exact path='/foods/:id' component={Food} />
         <Route exact path='/foods' component={Foods} />
+				<Route exact path='/foods/:food_id/restaurants' component={NewRestaurantForm} />
         <Route exact path='/foods/:food_id/restaurants/:id/update' component={UpdateRestaurantForm} />
         <Route exact path='/cooks' component={Cooks} />
         <Route exact path='/cooks/new' component={NewCookForm} />
