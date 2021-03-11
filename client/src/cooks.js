@@ -78,7 +78,7 @@ const Cooks = () => {
       <Card fluid color='blue'>
         <Card.Content style={{display: 'flex', justifyContent: 'space-between'}}>
           <Card.Header>Cooks Page</Card.Header>
-          <Link>
+          <Link to='/cooks/new'>
             <Button>New Cook</Button>
           </Link>
         </Card.Content>

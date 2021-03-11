@@ -45,9 +45,7 @@ const UpdateCookForm= () => {
         <label>Specialty</label>
         <input value={specialty} onChange={(e)=>setSpecialty(e.target.value)} defaultValue={specialty} placeholder='Specialty' />
       </Form.Field>
-      <Form.Field>
-        <Checkbox label='I agree to the Terms and Conditions' />
-      </Form.Field>
+
       <Button type='submit'>Submit</Button>
       <Button onClick={()=>history.push("/cooks")}>Cancel</Button>
     </Form>
