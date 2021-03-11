@@ -8,6 +8,8 @@ import { Container } from 'semantic-ui-react';
 import Cook from './cook';
 import Cooks from './cooks';
 import UpdateCookForm from './updateCookForm';
+import FoodForm from './foodForm'
+
 
 function App() {
   return (
@@ -17,7 +19,8 @@ function App() {
        <Switch>
         <Route exact path='/' component={Foods} />
         <Route exact path='/restaurant' component={Restaurant} />
-        <Route exact path='/food/:id' component={Food} />
+        <Route exact path='/foods/:id/form' component={FoodForm} />
+        <Route exact path='/foods/:id' component={Food} />
         <Route exact path='/foods' component={Foods} />
         <Route exact path='/cooks' component={Cooks} />
         <Route exact path='/cooks/:id' component={Cook} />

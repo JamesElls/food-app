@@ -33,7 +33,7 @@ const Foods = () => {
                         <Card.Header>{food.name}</Card.Header>
                         </Card.Content>
                         <Card.Content>
-                        <Link to={`/food/${food.id}`}>
+                        <Link to={`/foods/${food.id}`}>
                             <Button>View</Button>
                         </Link>
                         </Card.Content>
