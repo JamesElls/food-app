@@ -45,7 +45,7 @@ history.push('/')
           
          <div >
            <Button color='orange' onClick={deleteFood}>Delete</Button>
-           <Link to={`/foods/${id}/edit`}>
+           <Link to={`/foods/${id}/update`}>
               <Button>Update</Button>
            </Link>
          </div>

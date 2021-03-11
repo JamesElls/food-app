@@ -37,7 +37,7 @@ class Api::RestaurantsController < ApplicationController
     end
 
     def destroy
-        restaurant = Restaurant.find(params[:id]).destroy
+        restaurant = food_id.restaurants.find(params[:id]).destroy
         render json: restaurant
     end
 

@@ -23,7 +23,7 @@ function App() {
         <Route exact path='/' component={Foods} />
         <Route exact path='/restaurant' component={Restaurant} />
         <Route exact path='/foods/new' component={NewFoodForm} />
-        <Route exact path='/foods/:id/form' component={UpdateFoodForm} />
+        <Route exact path='/foods/:id/update' component={UpdateFoodForm} />
         <Route exact path='/foods/:id' component={Food} />
         <Route exact path='/foods' component={Foods} />
         <Route exact path='/foods/:food_id/restaurants/:id/update' component={UpdateRestaurantForm} />
