@@ -62,7 +62,7 @@ const UpdateRestaurantForm = () => {
 				defaultValue={address} 
 				placeholder='Input New Restaurant Review Here' />
 			</Form.Field>
-			<Button type='submit'>Add Restaurant</Button>
+			<Button type='submit'>Update</Button>
 			<Button onClick={()=>history.push(`/foods/${food_id}`)}>Cancel</Button>
 		</Form>
 		)
