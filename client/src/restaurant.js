@@ -10,7 +10,7 @@ const Restaurant = (props) => {
 			<p>{rating}</p>
 			<div>
 			<button>Delete</button>
-			<Link to={`/api/foods/${foodId}/restaurants/${id}`}>
+			<Link to={`/foods/${foodId}/restaurants/${id}/update`}>
 			<button>Update</button>
 			</Link>
 			</div>
