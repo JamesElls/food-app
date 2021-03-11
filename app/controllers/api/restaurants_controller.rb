@@ -14,7 +14,7 @@ class Api::RestaurantsController < ApplicationController
     end
 
     def create
-        restaurant = restaurant_params.resturants.create
+        restaurant = food_id.restaurants.new(restaurant_params)
 
         if restaurant.save
             render json: restaurant
