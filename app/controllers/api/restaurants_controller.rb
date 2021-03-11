@@ -1,6 +1,6 @@
 class Api::RestaurantsController < ApplicationController
-    before_action :restaurant_params, only: [:update, :destroy]
-    before_action :food_id, only: [:index, :show]
+    before_action :restaurant_params, only: [:update]
+    before_action :food_id, only: [:index, :show, :destroy]
 
 
     def index
