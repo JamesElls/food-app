@@ -14,6 +14,7 @@ const NewCookForm= () => {
     try{
       axios.post(`/api/cooks`, {name, specialty})
       history.push(`/cooks`)
+      window.location.reload()
     } catch (err){
       alert('Error!')
     }

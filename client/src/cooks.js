@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Button, Card } from 'semantic-ui-react';
 
 const Cooks = () => {
   const [cooks, setCooks] = useState([])
+  const history = useHistory()
 
   const getCooks = async () => {
     try {
@@ -19,27 +20,14 @@ const Cooks = () => {
     getCooks()
   }, [])
 
-
-  // const addCooks = async (newCookObj) => {
-  //   try {
-  //     let res = await axios.post("/api/cooks", {...newCookObj})
-  //     console.log(res.data)
-  //     setCooks([...cooks, res.data])
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-
-  // const updateCooks = async (updatedCookObj, id) => {
-  //   try {
-  //     let res = await axios.put(`/api/cooks/${id}`, {...updatedCookObj})
-  //     console.log(res.data)
-  //   } catch (err) {
-  //     console.log(err)
-      
-  //   }
-  // }
-
+  const deleteCook = async (id) => {
+    try {
+      let res = await axios.delete(`/api/cooks/${id}`)
+      window.location.reload()
+    } catch (err) {
+      console.log(err)
+    }
+  } 
 
   const renderCooks = () => {
     return cooks.map( cook => {
@@ -63,7 +51,7 @@ const Cooks = () => {
                   Update
                 </Button>
               </Link>
-              <Button basic color='red'>
+              <Button onClick={()=>deleteCook(cook.id)} basic color='red'>
                 Delete
               </Button>
             </div>

@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useState, useEffect} from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
 const Cook = () => {
   const {id} = useParams()
+  const history = useHistory()
 
   const [cook, setCook] = useState({})
 
@@ -19,6 +20,16 @@ const Cook = () => {
       let res = await axios.get(`/api/cooks/${id}`)
       console.log(res.data)
       setCook(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
+  const deleteCook = async () => {
+    try {
+      let res = await axios.delete(`/api/cooks/${id}`)
+      history.push('/cooks')
     } catch (err) {
       console.log(err)
     }
@@ -44,7 +55,7 @@ const Cook = () => {
         <Link to={`/cooks/${cook.id}/update`}>
           <Button>Update</Button>
         </Link>
-        <Button>Delete</Button>
+        <Button onClick={()=>deleteCook()}>Delete</Button>
       </div>
     </div>
   )
