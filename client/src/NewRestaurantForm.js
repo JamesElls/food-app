@@ -20,19 +20,19 @@ const newRestaurantForm = () => {
 			
 		<Form onSubmit ={handleSubmit}>
 			<Form.Field>
-			<h1>Add A New Restaurant!</h1>
-			<input
-			  value={name}
-				onChange={(e)=> setName(e.target.value)}
-			 	defaultValue={name} 
-				placeholder='Input New Restaurant Name Here' />
+				<h1>Add A New Restaurant!</h1>
+				<input
+					value={name}
+					onChange={(e)=> setName(e.target.value)}
+					defaultValue={name} 
+					placeholder='Input New Restaurant Name Here' />
 			</Form.Field>
 			<Form.Field>
-			<input
-				value={review}
-				onChange={(e)=> setReview(e.target.value)}
-				defaultValue={review} 
-				placeholder='Input New Restaurant Review Here' />
+				<input
+					value={review}
+					onChange={(e)=> setReview(e.target.value)}
+					defaultValue={review} 
+					placeholder='Input New Restaurant Review Here' />
 			</Form.Field>
 			<button type='submit'>Add Restaurant</button>
 		</Form>
