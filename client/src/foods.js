@@ -1,12 +1,13 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Card , Button, CardHeader} from "semantic-ui-react"
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 
 const Foods = () => {
 
     const [foods, setFoods] =useState([])
+    const history = useHistory()
 
     useEffect(() => {
         getFoods()
@@ -20,6 +21,15 @@ const Foods = () => {
             alert('error occurred getting foods, need to debug')
         }
     }
+
+    const deleteFood = async (id) => {
+        try {
+          let res = await axios.delete(`/api/foods/${id}`)
+          window.location.reload()
+        } catch (err) {
+          console.log(err)
+        }
+      } 
 
     const renderFoods = () => {
         if (foods.length === 0){
@@ -40,12 +50,12 @@ const Foods = () => {
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                        <Link>
+                        <Link to={`/foods/${food.id}/form`}>
                             <Button basic color='green'>
                             Update
                             </Button>
                         </Link>
-                        <Button basic color='red'>
+                        <Button basic color='red' onClick={() => deleteFood(food.id)}>
                             Delete
                         </Button>
                         </div>
@@ -61,7 +71,7 @@ const Foods = () => {
         <Card fluid color='blue'>
           <Card.Content style={{display: 'flex', justifyContent: 'space-between'}}>
             <Card.Header>Foods Page</Card.Header>
-            <Link>
+            <Link to={`/foods/new`}>
               <Button>New Food</Button>
             </Link>
           </Card.Content>
