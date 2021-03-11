@@ -8,13 +8,13 @@ const NewRestaurantForm = () => {
 	const [name, setName] = useState ('')
 	const [address, setAddress] = useState ('')
 	const history = useHistory()
-	const {food_id} = useParams
+	const {food_id} = useParams()
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
-		try {
-			axios.post(`/api/foods/${food_id}/restaurants`,{name, address})
-			history.push(`/food/${food_id}`)
+		try { console.log(food_id)
+			let res = await axios.post(`/api/foods/${food_id}/restaurants`,{name, address})
+			history.push(`/foods/${food_id}`)
 		}catch(error){
 			alert('not correctly functioning')
 		}
