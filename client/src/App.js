@@ -10,6 +10,9 @@ import Cooks from './cooks';
 import UpdateCookForm from './updateCookForm';
 import NewCookForm from './newCookForm';
 import UpdateRestaurantForm from './UpdateRestaurantForm';
+import UpdateFoodForm from './updateFoodForm'
+import NewFoodForm from './newFoodForm';
+
 
 function App() {
   return (
@@ -19,7 +22,9 @@ function App() {
        <Switch>
         <Route exact path='/' component={Foods} />
         <Route exact path='/restaurant' component={Restaurant} />
-        <Route exact path='/food/:id' component={Food} />
+        <Route exact path='/foods/new' component={NewFoodForm} />
+        <Route exact path='/foods/:id/form' component={UpdateFoodForm} />
+        <Route exact path='/foods/:id' component={Food} />
         <Route exact path='/foods' component={Foods} />
         <Route exact path='/foods/:food_id/restaurants/:id/update' component={UpdateRestaurantForm} />
         <Route exact path='/cooks' component={Cooks} />
