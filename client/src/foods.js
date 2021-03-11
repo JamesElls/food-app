@@ -50,7 +50,7 @@ const Foods = () => {
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                        <Link to={`/foods/${food.id}/form`}>
+                        <Link to={`/foods/${food.id}/update`}>
                             <Button basic color='green'>
                             Update
                             </Button>

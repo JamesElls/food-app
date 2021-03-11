@@ -1,6 +1,6 @@
 class Api::RestaurantsController < ApplicationController
-    before_action :restaurant_params, only: [:update, :destroy]
-    before_action :food_id, only: [:index, :show]
+    before_action :restaurant_params, only: [:update]
+    before_action :food_id, only: [:index, :show, :destroy]
 
 
     def index
@@ -26,10 +26,10 @@ class Api::RestaurantsController < ApplicationController
 
     def update
 
-        restaurant = food_id.restaurants.find(params[:food_id])
+        restaurant = food_id.restaurants.find(params[:id])
 
         if restaurant.update(restaurant_params)
-            render json: resturant
+            render json: restaurant
         else
             render json: { errors: restaurants.errors }, status: :unprocessable_entitiy
         end
@@ -37,7 +37,7 @@ class Api::RestaurantsController < ApplicationController
     end
 
     def destroy
-        restaurant = Restaurant.find(params[:id]).destroy
+        restaurant = food_id.restaurants.find(params[:id]).destroy
         render json: restaurant
     end
 
