@@ -1,5 +1,7 @@
+import {Link} from 'react-router-dom'
+
 const Restaurant = (props) => {
-	const {name, review, rating, id, foodID} = props
+	const {name, review, rating, id, foodId} = props
   return(
     <div>
       <h1>Restaurant Page</h1>
@@ -8,7 +10,9 @@ const Restaurant = (props) => {
 			<p>{rating}</p>
 			<div>
 			<button>Delete</button>
+			<Link to={`/api/foods/${foodId}/restaurants/${id}`}>
 			<button>Update</button>
+			</Link>
 			</div>
     </div>
   )
