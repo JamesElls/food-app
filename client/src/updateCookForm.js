@@ -30,7 +30,8 @@ const UpdateCookForm= () => {
   
       try {
         axios.put(`/api/cooks/${id}`, {name, specialty})
-        history.goBack()
+        history.push('/cooks')
+        window.location.reload()
       } catch (err) {
         console.log(err)
       }
