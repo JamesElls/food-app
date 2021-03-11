@@ -10,23 +10,31 @@ const Food = () => {
 
     const [food, setFood]=useState({})
     const [showNewForm, setShowNewForm] = useState(false)
-    const [restaurant, setRestaurant] = useState([])
+    const [restaurants, setRestaurants] = useState([])
 
 
     const getFood = async () => {
       try {
         let res = await axios.get(`/api/foods/${id}`)
         setFood(res.data.food)
-        setRestaurant(res.data.restaurant)
+        setRestaurants(res.data.restaurants)
   
       } catch (err) {
         alert('error check console')
       }
     }
 
+  useEffect (()=>{
+    getFood()
+  
+  }, [])
+
     const deleteFood= async()=> {
 let res= await axios.get(`/api/foods/${id}`)
 history.push('/')
+    }
+    const renderRestaurants = ()=>{
+      return restaurants.map(restaurant => <Restaurant key={restaurant.id} foodId={id} {...restaurant}/>)
     }
     
   return(
@@ -44,6 +52,10 @@ history.push('/')
        </Card.Header>
        </Card.Content>
       </Card>
+      <Card.Group>
+        {renderRestaurants()}
+      </Card.Group>
+     
       
       </>
   )
