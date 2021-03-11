@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Cook from './cook';
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'semantic-ui-react';
 
@@ -21,6 +20,27 @@ const Cooks = () => {
   }, [])
 
 
+  // const addCooks = async (newCookObj) => {
+  //   try {
+  //     let res = await axios.post("/api/cooks", {...newCookObj})
+  //     console.log(res.data)
+  //     setCooks([...cooks, res.data])
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
+
+  // const updateCooks = async (updatedCookObj, id) => {
+  //   try {
+  //     let res = await axios.put(`/api/cooks/${id}`, {...updatedCookObj})
+  //     console.log(res.data)
+  //   } catch (err) {
+  //     console.log(err)
+      
+  //   }
+  // }
+
+
   const renderCooks = () => {
     return cooks.map( cook => {
       return(
@@ -38,7 +58,7 @@ const Cooks = () => {
           </Card.Content>
           <Card.Content extra>
             <div className='ui two buttons'>
-              <Link>
+              <Link to={`/cooks/${cook.id}/update`}>
                 <Button basic color='green'>
                   Update
                 </Button>
