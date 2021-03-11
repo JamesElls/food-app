@@ -12,7 +12,7 @@ const UpdateRestaurantForm = () => {
 
 	const [food, setFood] = useState(null)
 	const [name, setName] = useState('')
-	const [review, setReview] = useState('')
+	const [address, setAddress] = useState('')
 
 
 	useEffect(()=>{
@@ -23,8 +23,9 @@ const UpdateRestaurantForm = () => {
 	const getRestaurant = async() => {
 		try {
 			let res = await axios.get(`/api/foods/${food_id}/restaurants/${id}`)
+			console.log(res.data)
 			setName(res.data.name)
-			setReview(res.data.review)
+			setAddress(res.data.address)
 		} catch (err) {
 			console.log(err)
 		}
@@ -33,7 +34,7 @@ const UpdateRestaurantForm = () => {
 
 	const handleSubmit = async() => {
 		try {
-			let res = await axios.put(`/api/foods/${food_id}/restaurants`, {name, review})
+			let res = await axios.put(`/api/foods/${food_id}/restaurants/${id}`, {name, address})
 			history.push(`/foods/${food_id}`)
 		} catch (err) {
 			console.log(err)
@@ -44,8 +45,9 @@ const UpdateRestaurantForm = () => {
 
 	return (
 		<Form onSubmit ={handleSubmit}>
+			<h1>Update Restaurant~ {name}</h1>
 			<Form.Field>
-			<h1>Add A New Restaurant!</h1>
+			<label>Name</label>
 			<input
 			  value={name}
 				onChange={(e)=> setName(e.target.value)}
@@ -53,10 +55,11 @@ const UpdateRestaurantForm = () => {
 				placeholder='Input New Restaurant Name Here' />
 			</Form.Field>
 			<Form.Field>
+			<label>Address</label>
 			<input
-				value={review}
-				onChange={(e)=> setReview(e.target.value)}
-				defaultValue={review} 
+				value={address}
+				onChange={(e)=> setAddress(e.target.value)}
+				defaultValue={address} 
 				placeholder='Input New Restaurant Review Here' />
 			</Form.Field>
 			<Button type='submit'>Add Restaurant</Button>

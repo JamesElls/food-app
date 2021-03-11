@@ -26,10 +26,10 @@ class Api::RestaurantsController < ApplicationController
 
     def update
 
-        restaurant = food_id.restaurants.find(params[:food_id])
+        restaurant = food_id.restaurants.find(params[:id])
 
         if restaurant.update(restaurant_params)
-            render json: resturant
+            render json: restaurant
         else
             render json: { errors: restaurants.errors }, status: :unprocessable_entitiy
         end
