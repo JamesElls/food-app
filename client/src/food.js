@@ -44,10 +44,11 @@ history.push('/')
        <Card.Header style={{display:'flex', justifyContent:'space-between'}}>
           
          <div >
-           <Button color='orange' onClick={deleteFood}>Delete</Button>
+					 <h1>{food.name}</h1>
+           {/* <Button color='orange' onClick={deleteFood}>Delete</Button>
            <Link to={`/foods/${id}/edit`}>
               <Button>Update</Button>
-           </Link>
+           </Link> */}
          </div>
        </Card.Header>
        </Card.Content>
@@ -55,8 +56,6 @@ history.push('/')
       <Card.Group>
         {renderRestaurants()}
       </Card.Group>
-     
-      
       </>
   )
 }

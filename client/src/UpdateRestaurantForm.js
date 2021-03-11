@@ -45,7 +45,7 @@ const UpdateRestaurantForm = () => {
 	return (
 		<Form onSubmit ={handleSubmit}>
 			<Form.Field>
-			<h1>Add A New Restaurant!</h1>
+			<h1>Update Restaurant!</h1>
 			<input
 			  value={name}
 				onChange={(e)=> setName(e.target.value)}
