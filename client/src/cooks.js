@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Cook from './cook';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Button, Card } from 'semantic-ui-react';
 
 const Cooks = () => {
   const [cooks, setCooks] = useState([])
+  const history = useHistory()
 
   const getCooks = async () => {
     try {
@@ -20,6 +20,14 @@ const Cooks = () => {
     getCooks()
   }, [])
 
+  const deleteCook = async (id) => {
+    try {
+      let res = await axios.delete(`/api/cooks/${id}`)
+      window.location.reload()
+    } catch (err) {
+      console.log(err)
+    }
+  } 
 
   const renderCooks = () => {
     return cooks.map( cook => {
@@ -38,12 +46,12 @@ const Cooks = () => {
           </Card.Content>
           <Card.Content extra>
             <div className='ui two buttons'>
-              <Link>
+              <Link to={`/cooks/${cook.id}/update`}>
                 <Button basic color='green'>
                   Update
                 </Button>
               </Link>
-              <Button basic color='red'>
+              <Button onClick={()=>deleteCook(cook.id)} basic color='red'>
                 Delete
               </Button>
             </div>
@@ -58,7 +66,7 @@ const Cooks = () => {
       <Card fluid color='blue'>
         <Card.Content style={{display: 'flex', justifyContent: 'space-between'}}>
           <Card.Header>Cooks Page</Card.Header>
-          <Link>
+          <Link to='/cooks/new'>
             <Button>New Cook</Button>
           </Link>
         </Card.Content>

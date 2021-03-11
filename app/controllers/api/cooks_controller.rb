@@ -20,7 +20,7 @@ class Api::CooksController < ApplicationController
 
 	def update
 		cook = Cook.find (params[:id])
-		cook.update(complete: !cook.complete)
+		cook.update(cook_params)
 		render json: cook
 	end
 
